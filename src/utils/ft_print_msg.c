@@ -6,7 +6,7 @@
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/11 02:02:03 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/07/11 02:28:46 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/07/22 13:04:30 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_print_msg(char *str, t_philo *philo, int id)
 
 	pthread_mutex_lock(philo->write_lock);
 	time = ft_gettimeofday() - philo->start_time;
-	if (!ft_dead_loop(philo))
+	if (!dead_loop(philo))
 		printf("%zu %d %s\n", time, id, str);
 	pthread_mutex_unlock(philo->write_lock);
 }

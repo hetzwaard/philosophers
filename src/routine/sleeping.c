@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_think.c                                         :+:    :+:            */
+/*   ft_sleep.c                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/07/10 14:31:55 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/07/11 02:03:23 by mahkilic      ########   odam.nl         */
+/*   Created: 2025/07/10 14:32:27 by mahkilic      #+#    #+#                 */
+/*   Updated: 2025/07/22 13:02:28 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/philo.h"
 
-void	ft_think(t_philo *philo)
+void	sleeping(t_philo *philo)
 {
-	ft_print_msg("is thinking", philo, philo->id);
+	ft_print_msg("is sleeping", philo, philo->id);
+	ft_usleep(philo->time_to_sleep);
 }

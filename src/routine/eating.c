@@ -6,13 +6,13 @@
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/10 14:34:07 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/07/11 02:25:27 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/07/22 13:02:19 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/philo.h"
 
-void	ft_eat(t_philo *philo)
+void	eating(t_philo *philo)
 {
 	pthread_mutex_lock(philo->r_fork);
 	ft_print_msg("has taken a fork", philo, philo->id);

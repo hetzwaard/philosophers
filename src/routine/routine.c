@@ -1,19 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_sleep.c                                         :+:    :+:            */
+/*   routine.c                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/07/10 14:32:27 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/07/11 02:03:20 by mahkilic      ########   odam.nl         */
+/*   Created: 2025/07/11 02:14:06 by mahkilic      #+#    #+#                 */
+/*   Updated: 2025/07/22 13:03:23 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/philo.h"
 
-void	ft_sleep(t_philo *philo)
+int	dead_loop(t_philo *philo)
 {
-	ft_print_msg("is sleeping", philo, philo->id);
-	ft_usleep(philo->time_to_sleep);
+	pthread_mutex_lock(philo->dead_lock);
+	if (*philo->dead == 1)
+		return (pthread_mutex_unlock(philo->dead_lock), 1);
+	pthread_mutex_unlock(philo->dead_lock);
+	return (0);
+}
+
+void	*routine(void *pointer)
+{
+	t_philo	*philo;
+
+	philo = (t_philo *)pointer;
+	if (philo->id % 2 == 0)
+		ft_usleep(1);
+	while (!dead_loop(philo))
+	{
+		eating(philo);
+		sleeping(philo);
+		thinking(philo);
+	}
+	return (pointer);
 }

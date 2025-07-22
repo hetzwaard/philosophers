@@ -6,7 +6,7 @@
 #    By: mahkilic <mahkilic@student.42.fr>            +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/07/08 21:13:23 by mahkilic      #+#    #+#                  #
-#    Updated: 2025/07/21 00:05:35 by mahkilic      ########   odam.nl          #
+#    Updated: 2025/07/22 13:02:15 by mahkilic      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,10 +29,10 @@ SRCS =	$(SRCDIR)/main.c \
 		$(SRCDIR)/init/init_philos.c \
 		$(SRCDIR)/init/init_program.c \
 		$(SRCDIR)/init/init_threads.c \
-		$(SRCDIR)/routine/ft_eat.c \
-		$(SRCDIR)/routine/ft_sleep.c \
-		$(SRCDIR)/routine/ft_think.c \
-		$(SRCDIR)/routine/ft_routine.c \
+		$(SRCDIR)/routine/eating.c \
+		$(SRCDIR)/routine/sleeping.c \
+		$(SRCDIR)/routine/thinking.c \
+		$(SRCDIR)/routine/routine.c \
 		$(SRCDIR)/utils/ft_atoi.c \
 		$(SRCDIR)/utils/ft_destroy.c \
 		$(SRCDIR)/utils/ft_gettimeofday.c \

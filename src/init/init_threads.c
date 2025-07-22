@@ -6,7 +6,7 @@
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/11 02:12:49 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/07/11 02:29:41 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/07/22 13:04:04 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	init_threads(t_program *program, pthread_mutex_t *forks)
 	i = 0;
 	while (i < program->philos[0].num_of_philos)
 	{
-		if (pthread_create(&program->philos[i].thread, NULL, &ft_routine,
+		if (pthread_create(&program->philos[i].thread, NULL, &routine,
 				&program->philos[i]) != 0)
 			ft_destroy("Thread creation error", program, forks);
 		i++;

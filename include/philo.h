@@ -6,7 +6,7 @@
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/08 01:19:58 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/07/11 02:31:30 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/07/22 13:03:53 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,11 @@ void	init_program(t_program *program, t_philo *philos);
 int		init_threads(t_program *program, pthread_mutex_t *forks);
 
 /* routine */
-int		ft_dead_loop(t_philo *philo);
-void	*ft_routine(void *pointer);
-void	ft_eat(t_philo *philo);
-void	ft_sleep(t_philo *philo);
-void	ft_think(t_philo *philo);
+int		dead_loop(t_philo *philo);
+void	*routine(void *pointer);
+void	eating(t_philo *philo);
+void	sleeping(t_philo *philo);
+void	thinking(t_philo *philo);
 
 /* utils */
 int		ft_atoi(char *str);
