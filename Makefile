@@ -6,13 +6,13 @@
 #    By: mahkilic <mahkilic@student.42.fr>            +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/07/08 21:13:23 by mahkilic      #+#    #+#                  #
-#    Updated: 2025/07/22 13:02:15 by mahkilic      ########   odam.nl          #
+#    Updated: 2025/11/14 19:14:49 by mahkilic      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 # Compiler and flags
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -pthread
+CFLAGS = -Wall -Wextra -Werror 
 INCLUDES = -Iinclude
 
 # Directories
