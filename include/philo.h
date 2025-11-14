@@ -6,7 +6,7 @@
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/08 01:19:58 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/07/22 13:03:53 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/11/14 19:29:57 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ typedef struct s_philo
 	pthread_mutex_t	*dead_lock;
 	pthread_mutex_t	*meal_lock;
 }					t_philo;
+
 typedef struct s_program
 {
 	int				dead_flag;
