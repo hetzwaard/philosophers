@@ -6,7 +6,7 @@
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/11 02:14:06 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/07/22 13:03:23 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/11/16 17:45:26 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	*routine(void *pointer)
 
 	philo = (t_philo *)pointer;
 	if (philo->id % 2 == 0)
-		ft_usleep(1);
+		ft_usleep(5);
 	while (!dead_loop(philo))
 	{
 		eating(philo);
