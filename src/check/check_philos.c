@@ -6,7 +6,7 @@
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/11 02:00:07 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/07/11 02:24:50 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/11/16 19:37:27 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	philosopher_dead(t_philo *philo, size_t time_to_die)
 		&& philo->eating == 0)
 		return (pthread_mutex_unlock(philo->meal_lock), 1);
 	pthread_mutex_unlock(philo->meal_lock);
-	return (0);
+	return (SUCCESS);
 }
 
 int	check_if_dead(t_philo *philos)
@@ -35,11 +35,11 @@ int	check_if_dead(t_philo *philos)
 			pthread_mutex_lock(philos[0].dead_lock);
 			*philos->dead = 1;
 			pthread_mutex_unlock(philos[0].dead_lock);
-			return (1);
+			return (ERROR);
 		}
 		i++;
 	}
-	return (0);
+	return (SUCCESS);
 }
 
 int	check_if_all_ate(t_philo *philos)
@@ -50,7 +50,7 @@ int	check_if_all_ate(t_philo *philos)
 	i = 0;
 	finished_eating = 0;
 	if (philos[0].num_times_to_eat == -1)
-		return (0);
+		return (SUCCESS);
 	while (i < philos[0].num_of_philos)
 	{
 		pthread_mutex_lock(philos[i].meal_lock);
@@ -64,9 +64,9 @@ int	check_if_all_ate(t_philo *philos)
 		pthread_mutex_lock(philos[0].dead_lock);
 		*philos->dead = 1;
 		pthread_mutex_unlock(philos[0].dead_lock);
-		return (1);
+		return (ERROR);
 	}
-	return (0);
+	return (SUCCESS);
 }
 
 void	*monitor(void *pointer)

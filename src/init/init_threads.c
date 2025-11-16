@@ -6,7 +6,7 @@
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/11 02:12:49 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/07/22 13:04:04 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/11/16 19:37:47 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,5 @@ int	init_threads(t_program *program, pthread_mutex_t *forks)
 			ft_destroy("Thread join error", program, forks);
 		i++;
 	}
-	return (0);
+	return (SUCCESS);
 }

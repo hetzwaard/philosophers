@@ -6,7 +6,7 @@
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/08 01:19:58 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/11/14 19:29:57 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/11/16 19:35:31 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include <unistd.h>
 # include <limits.h>
 
+# define PHILO_MAX 200
+
 # define TRUE 1
 # define FALSE 0
 
@@ -32,9 +34,12 @@
 # define THINKING "is thinking"
 # define SLEEPING "is sleeping"
 
-# define WRONG_ARGS "input must be an integer larger than 0"
-
-# define PHILO_MAX 300
+# define ERR_ARG_COUNT "Wrong argument count"
+# define ERR_EAT_NMBR "Invalid number of times each philosopher must eat"
+# define ERR_PHI_NMBR "Invalid number of philosophers"
+# define ERR_DIE_TIME "Invalid time to die"
+# define ERR_EAT_TIME "Invalid time to eat"
+# define ERR_SLP_TIME "Invalid time to sleep"
 
 typedef struct s_philo
 {
@@ -88,6 +93,7 @@ void	thinking(t_philo *philo);
 /* utils */
 int		ft_atoi(char *str);
 void	ft_destroy(char *str, t_program *program, pthread_mutex_t *forks);
+void	ft_error(char *str);
 size_t	ft_gettimeofday(void);
 void	ft_print_msg(char *str, t_philo *philo, int id);
 int		ft_strlen(char *str);

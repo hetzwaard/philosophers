@@ -6,7 +6,7 @@
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/11 02:14:06 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/11/16 17:45:26 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/11/16 19:39:26 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	dead_loop(t_philo *philo)
 	if (*philo->dead == 1)
 		return (pthread_mutex_unlock(philo->dead_lock), 1);
 	pthread_mutex_unlock(philo->dead_lock);
-	return (0);
+	return (SUCCESS);
 }
 
 void	*routine(void *pointer)

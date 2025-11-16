@@ -6,7 +6,7 @@
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/08 01:19:30 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/11/14 19:06:22 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/11/16 19:40:06 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ int	main(int argc, char **argv)
 	pthread_mutex_t	forks[PHILO_MAX];
 
 	if (argc != 5 && argc != 6)
-		return (write(2, "Wrong argument count\n", 22), 1);
-	if (check_args(argv) == 1)
-		return (1);
+		return (ft_error(ERR_ARG_COUNT), ERROR);
+	if (check_args(argv))
+		return (ERROR);
 	init_program(&program, philos);
 	init_forks(forks, ft_atoi(argv[1]));
 	init_philos(philos, &program, forks, argv);
 	init_threads(&program, forks);
 	ft_destroy(NULL, &program, forks);
-	return (0);
+	return (SUCCESS);
 }

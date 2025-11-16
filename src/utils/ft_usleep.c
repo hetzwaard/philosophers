@@ -6,7 +6,7 @@
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/10 14:30:12 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/07/11 02:26:35 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/11/16 19:38:02 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ int	ft_usleep(size_t milliseconds)
 	start = ft_gettimeofday();
 	while ((ft_gettimeofday() - start) < milliseconds)
 		usleep(500);
-	return (0);
+	return (SUCCESS);
 }

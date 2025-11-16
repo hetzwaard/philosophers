@@ -6,7 +6,7 @@
 #    By: mahkilic <mahkilic@student.42.fr>            +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/07/08 21:13:23 by mahkilic      #+#    #+#                  #
-#    Updated: 2025/11/14 20:05:17 by mahkilic      ########   odam.nl          #
+#    Updated: 2025/11/16 19:32:55 by mahkilic      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SRCS =	$(SRCDIR)/main.c \
 		$(SRCDIR)/routine/routine.c \
 		$(SRCDIR)/utils/ft_atoi.c \
 		$(SRCDIR)/utils/ft_destroy.c \
+		$(SRCDIR)/utils/ft_error.c \
 		$(SRCDIR)/utils/ft_gettimeofday.c \
 		$(SRCDIR)/utils/ft_print_msg.c \
 		$(SRCDIR)/utils/ft_strlen.c \
