@@ -14,12 +14,12 @@
 
 void	init_input(t_philo *philo, char **argv)
 {
+	philo->number_of_philosophers = ft_atoi(argv[1]);
 	philo->time_to_die = ft_atoi(argv[2]);
 	philo->time_to_eat = ft_atoi(argv[3]);
 	philo->time_to_sleep = ft_atoi(argv[4]);
-	philo->num_of_philos = ft_atoi(argv[1]);
 	if (argv[5])
-		philo->num_times_to_eat = ft_atoi(argv[5]);
+		philo->number_of_times_each_philosopher_must_eat = ft_atoi(argv[5]);
 	else
-		philo->num_times_to_eat = -1;
+		philo->number_of_times_each_philosopher_must_eat = -1;
 }

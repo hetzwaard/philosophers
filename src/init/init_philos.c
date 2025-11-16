@@ -32,7 +32,7 @@ void	init_philos(t_philo *philos, t_program *program, pthread_mutex_t *forks,
 		philos[i].dead = &program->dead_flag;
 		philos[i].l_fork = &forks[i];
 		if (i == 0)
-			philos[i].r_fork = &forks[philos[i].num_of_philos - 1];
+			philos[i].r_fork = &forks[philos[i].number_of_philosophers - 1];
 		else
 			philos[i].r_fork = &forks[i - 1];
 		i++;

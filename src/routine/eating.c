@@ -16,7 +16,7 @@ void	eating(t_philo *philo)
 {
 	pthread_mutex_lock(philo->r_fork);
 	ft_print_msg("has taken a fork", philo, philo->id);
-	if (philo->num_of_philos == 1)
+	if (philo->number_of_philosophers == 1)
 	{
 		ft_usleep(philo->time_to_die);
 		pthread_mutex_unlock(philo->r_fork);
