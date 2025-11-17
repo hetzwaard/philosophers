@@ -43,7 +43,7 @@ int	ft_atoi(char *str)
 	{
 		num = num * 10 + (str[i] - 48);
 		if ((num * sign) > INT_MAX || (num * sign) < INT_MIN)
-			return (write(2, "atoi error", 11), 1);
+			return (ERROR);
 		i++;
 	}
 	return (num * sign);
