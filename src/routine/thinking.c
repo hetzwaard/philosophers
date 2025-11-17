@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_think.c                                         :+:    :+:            */
+/*   thinking.c                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
@@ -14,5 +14,20 @@
 
 void	thinking(t_philo *philo)
 {
-	ft_print_msg("is thinking", philo, philo->id);
+	size_t	delay;
+
+	ft_print_msg(THINKING, philo, philo->id);
+	delay = 0;
+	if (philo->number_of_philosophers % 2 != 0 && philo->id % 2 == 0)
+	{
+		if (philo->time_to_die > philo->time_to_eat + philo->time_to_sleep)
+		{
+			delay = philo->time_to_die
+				- (philo->time_to_eat + philo->time_to_sleep);
+			if (delay > philo->time_to_eat)
+				delay = philo->time_to_eat;
+		}
+	}
+	if (delay > 0)
+		ft_usleep(delay, philo);
 }

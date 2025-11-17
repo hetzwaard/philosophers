@@ -46,6 +46,7 @@ typedef struct s_philo
 	pthread_t		thread;
 	int				id;
 	int				eating;
+	int				finished;
 	int				meals_eaten;
 	size_t			last_meal;
 	size_t			time_to_die;
@@ -97,6 +98,6 @@ void	ft_error(char *str);
 size_t	ft_gettimeofday(void);
 void	ft_print_msg(char *str, t_philo *philo, int id);
 int		ft_strlen(char *str);
-int		ft_usleep(size_t milliseconds);
+int		ft_usleep(size_t milliseconds, t_philo *philo);
 
 #endif

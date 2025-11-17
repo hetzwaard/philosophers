@@ -22,6 +22,7 @@ void	init_philos(t_philo *philos, t_program *program, pthread_mutex_t *forks,
 	{
 		philos[i].id = i + 1;
 		philos[i].eating = 0;
+		philos[i].finished = 0;
 		philos[i].meals_eaten = 0;
 		init_input(&philos[i], argv);
 		philos[i].start_time = ft_gettimeofday();

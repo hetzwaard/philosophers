@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_sleep.c                                         :+:    :+:            */
+/*   sleeping.c                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
@@ -14,6 +14,9 @@
 
 void	sleeping(t_philo *philo)
 {
-	ft_print_msg("is sleeping", philo, philo->id);
-	ft_usleep(philo->time_to_sleep);
+	ft_print_msg(SLEEPING, philo, philo->id);
+	ft_usleep(philo->time_to_sleep, philo);
+	if (philo->number_of_philosophers % 2 != 0 && philo->id % 2 == 1
+		&& philo->time_to_die > philo->time_to_eat + philo->time_to_sleep)
+		ft_usleep(philo->time_to_eat, philo);
 }

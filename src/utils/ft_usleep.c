@@ -12,12 +12,16 @@
 
 #include "../../include/philo.h"
 
-int	ft_usleep(size_t milliseconds)
+int	ft_usleep(size_t milliseconds, t_philo *philo)
 {
 	size_t	start;
 
 	start = ft_gettimeofday();
 	while ((ft_gettimeofday() - start) < milliseconds)
+	{
+		if (philo != NULL && dead_loop(philo))
+			break ;
 		usleep(500);
+	}
 	return (SUCCESS);
 }

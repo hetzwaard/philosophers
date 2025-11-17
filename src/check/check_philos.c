@@ -15,6 +15,8 @@
 static int	philosopher_dead(t_philo *philo, size_t time_to_die)
 {
 	pthread_mutex_lock(philo->meal_lock);
+	if (philo->finished)
+		return (pthread_mutex_unlock(philo->meal_lock), SUCCESS);
 	if (ft_gettimeofday() - philo->last_meal >= time_to_die
 		&& philo->eating == 0)
 		return (pthread_mutex_unlock(philo->meal_lock), 1);
@@ -31,7 +33,7 @@ int	check_if_dead(t_philo *philos)
 	{
 		if (philosopher_dead(&philos[i], philos[i].time_to_die))
 		{
-			ft_print_msg("died", &philos[i], philos[i].id);
+			ft_print_msg(DIED, &philos[i], philos[i].id);
 			pthread_mutex_lock(philos[0].dead_lock);
 			*philos->dead = 1;
 			pthread_mutex_unlock(philos[0].dead_lock);

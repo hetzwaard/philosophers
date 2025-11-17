@@ -12,26 +12,54 @@
 
 #include "../../include/philo.h"
 
-void	eating(t_philo *philo)
+static int	case_one_philo(t_philo *philo, pthread_mutex_t **first)
 {
-	pthread_mutex_lock(philo->r_fork);
-	ft_print_msg("has taken a fork", philo, philo->id);
 	if (philo->number_of_philosophers == 1)
 	{
-		ft_usleep(philo->time_to_die);
-		pthread_mutex_unlock(philo->r_fork);
-		return ;
+		ft_usleep(philo->time_to_die, philo);
+		pthread_mutex_unlock(*first);
+		return (ERROR);
 	}
-	pthread_mutex_lock(philo->l_fork);
-	ft_print_msg("has taken a fork", philo, philo->id);
-	philo->eating = 1;
-	ft_print_msg("is eating", philo, philo->id);
+	return (SUCCESS);
+}
+
+static void	case_deadlock(t_philo *philo, pthread_mutex_t **first,
+	pthread_mutex_t **second)
+{
+	if (philo->id % 2 == 0)
+	{
+		*first = philo->l_fork;
+		*second = philo->r_fork;
+	}
+	else
+	{
+		*first = philo->r_fork;
+		*second = philo->l_fork;
+	}
+}
+
+void	eating(t_philo *philo)
+{
+	pthread_mutex_t	*first;
+	pthread_mutex_t	*second;
+
+	case_deadlock(philo, &first, &second);
+	pthread_mutex_lock(first);
+	ft_print_msg(TAKEN_FORK, philo, philo->id);
+	if (case_one_philo(philo, &first))
+		return ;
+	pthread_mutex_lock(second);
+	ft_print_msg(TAKEN_FORK, philo, philo->id);
 	pthread_mutex_lock(philo->meal_lock);
 	philo->last_meal = ft_gettimeofday();
-	philo->meals_eaten++;
+	philo->eating = 1;
 	pthread_mutex_unlock(philo->meal_lock);
-	ft_usleep(philo->time_to_eat);
+	ft_print_msg(EATING, philo, philo->id);
+	ft_usleep(philo->time_to_eat, philo);
+	pthread_mutex_lock(philo->meal_lock);
+	philo->meals_eaten++;
 	philo->eating = 0;
-	pthread_mutex_unlock(philo->l_fork);
-	pthread_mutex_unlock(philo->r_fork);
+	pthread_mutex_unlock(philo->meal_lock);
+	pthread_mutex_unlock(second);
+	pthread_mutex_unlock(first);
 }

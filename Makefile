@@ -13,7 +13,7 @@
 # Compiler and flags
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-# CFLAGS += -fsanitize=thread
+#CFLAGS += -fsanitize=thread
 INCLUDES = -Iinclude
 
 # Directories
