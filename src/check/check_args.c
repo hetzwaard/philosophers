@@ -29,15 +29,15 @@ static int	check_arg(char *arg)
 int	check_args(char **argv)
 {
 	if (ft_atoi(argv[1]) > PHILO_MAX || ft_atoi(argv[1]) <= 0
-		|| check_arg(argv[1]) == 1)
+		|| check_arg(argv[1]))
 		return (ft_error(ERR_PHI_NMBR), ERROR);
-	if (ft_atoi(argv[2]) <= 0 || check_arg(argv[2]) == 1)
+	if (ft_atoi(argv[2]) <= 0 || check_arg(argv[2]))
 		return (ft_error(ERR_DIE_TIME), ERROR);
-	if (ft_atoi(argv[3]) <= 0 || check_arg(argv[3]) == 1)
+	if (ft_atoi(argv[3]) <= 0 || check_arg(argv[3]))
 		return (ft_error(ERR_EAT_TIME), ERROR);
-	if (ft_atoi(argv[4]) <= 0 || check_arg(argv[4]) == 1)
+	if (ft_atoi(argv[4]) <= 0 || check_arg(argv[4]))
 		return (ft_error(ERR_SLP_TIME), ERROR);
-	if (argv[5] && (ft_atoi(argv[5]) < 0 || check_arg(argv[5]) == 1))
+	if (argv[5] && (ft_atoi(argv[5]) < 0 || check_arg(argv[5])))
 		return (ft_error(ERR_EAT_NMBR), ERROR);
 	return (SUCCESS);
 }
