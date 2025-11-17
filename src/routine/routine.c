@@ -27,7 +27,7 @@ void	*routine(void *pointer)
 
 	philo = (t_philo *)pointer;
 	if (philo->id % 2 == 0)
-		ft_usleep(5);
+		ft_usleep(50);
 	while (!dead_loop(philo))
 	{
 		eating(philo);

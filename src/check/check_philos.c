@@ -27,7 +27,7 @@ int	check_if_dead(t_philo *philos)
 	int	i;
 
 	i = 0;
-	while (i < philos[0].num_of_philos)
+	while (i < philos[0].number_of_philosophers)
 	{
 		if (philosopher_dead(&philos[i], philos[i].time_to_die))
 		{
@@ -49,17 +49,17 @@ int	check_if_all_ate(t_philo *philos)
 
 	i = 0;
 	finished_eating = 0;
-	if (philos[0].num_times_to_eat == -1)
+	if (philos[0].number_of_meals == -1)
 		return (SUCCESS);
-	while (i < philos[0].num_of_philos)
+	while (i < philos[0].number_of_philosophers)
 	{
 		pthread_mutex_lock(philos[i].meal_lock);
-		if (philos[i].meals_eaten >= philos[i].num_times_to_eat)
+		if (philos[i].meals_eaten >= philos[i].number_of_meals)
 			finished_eating++;
 		pthread_mutex_unlock(philos[i].meal_lock);
 		i++;
 	}
-	if (finished_eating == philos[0].num_of_philos)
+	if (finished_eating == philos[0].number_of_philosophers)
 	{
 		pthread_mutex_lock(philos[0].dead_lock);
 		*philos->dead = 1;

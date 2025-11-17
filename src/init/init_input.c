@@ -19,7 +19,7 @@ void	init_input(t_philo *philo, char **argv)
 	philo->time_to_eat = ft_atoi(argv[3]);
 	philo->time_to_sleep = ft_atoi(argv[4]);
 	if (argv[5])
-		philo->number_of_times_each_philosopher_must_eat = ft_atoi(argv[5]);
+		philo->number_of_meals = ft_atoi(argv[5]);
 	else
-		philo->number_of_times_each_philosopher_must_eat = -1;
+		philo->number_of_meals = -1;
 }

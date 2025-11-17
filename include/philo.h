@@ -53,7 +53,7 @@ typedef struct s_philo
 	size_t			time_to_sleep;
 	size_t			start_time;
 	int				number_of_philosophers;
-	int				number_of_times_each_philosopher_must_eat;
+	int				number_of_meals;
 	int				*dead;
 	pthread_mutex_t	*r_fork;
 	pthread_mutex_t	*l_fork;
