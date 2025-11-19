@@ -23,7 +23,8 @@ int	main(int ac, char **av)
 	if (check_args(av))
 		return (ERROR);
 	init_program(&program, philos);
-	init_forks(forks, ft_atoi(av[1]));
+	if (init_forks(&program, forks, ft_atoi(av[1])) == ERROR)
+		return (ft_destroy("Fork init error", &program, forks), ERROR);
 	init_philos(philos, &program, forks, av);
 	init_threads(&program, forks);
 	ft_destroy(NULL, &program, forks);

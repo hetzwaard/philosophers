@@ -14,6 +14,7 @@
 
 void	init_program(t_program *program, t_philo *philos)
 {
+	program->number_of_forks = 0;
 	program->dead_flag = 0;
 	program->philos = philos;
 	pthread_mutex_init(&program->write_lock, NULL);

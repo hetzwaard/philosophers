@@ -67,6 +67,7 @@ typedef struct s_philo
 
 typedef struct s_program
 {
+	int				number_of_forks;
 	int				dead_flag;
 	pthread_mutex_t	dead_lock;
 	pthread_mutex_t	meal_lock;
@@ -79,7 +80,8 @@ int		check_args(char **av);
 void	*monitor(void *pointer);
 
 /* init */
-void	init_forks(pthread_mutex_t *forks, int philo_num);
+int		init_forks(t_program *program, pthread_mutex_t *forks,
+			int number_of_philosophers);
 void	init_input(t_philo *philo, char **argv);
 void	init_philos(t_philo *philos, t_program *program,
 			pthread_mutex_t *forks, char **argv);

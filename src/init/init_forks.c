@@ -12,14 +12,19 @@
 
 #include "../../include/philo.h"
 
-void	init_forks(pthread_mutex_t *forks, int philo_num)
+int	init_forks(t_program *program, pthread_mutex_t *forks,
+	int number_of_philosophers)
 {
 	int	i;
 
+	program->number_of_forks = 0;
 	i = 0;
-	while (i < philo_num)
+	while (i < number_of_philosophers)
 	{
-		pthread_mutex_init(&forks[i], NULL);
+		if (pthread_mutex_init(&forks[i], NULL) != 0)
+			return (ERROR);
+		program->number_of_forks++;
 		i++;
 	}
+	return (SUCCESS);
 }
