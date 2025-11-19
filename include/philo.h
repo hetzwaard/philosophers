@@ -27,6 +27,7 @@
 
 # define SUCCESS 0
 # define ERROR 1
+# define FAILURE -1
 
 # define DIED "died"
 # define TAKEN_FORK "has taken a fork"
@@ -40,6 +41,7 @@
 # define ERR_DIE_TIME "Invalid time to die"
 # define ERR_EAT_TIME "Invalid time to eat"
 # define ERR_SLP_TIME "Invalid time to sleep"
+# define ERR_OVERFLOW "Invalid input"
 
 typedef struct s_philo
 {
@@ -73,7 +75,7 @@ typedef struct s_program
 }					t_program;
 
 /* check */
-int		check_args(char **argv);
+int		check_args(char **av);
 void	*monitor(void *pointer);
 
 /* init */

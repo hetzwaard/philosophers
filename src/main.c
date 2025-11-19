@@ -12,19 +12,19 @@
 
 #include "../include/philo.h"
 
-int	main(int argc, char **argv)
+int	main(int ac, char **av)
 {
 	t_program		program;
 	t_philo			philos[PHILO_MAX];
 	pthread_mutex_t	forks[PHILO_MAX];
 
-	if (argc != 5 && argc != 6)
+	if (ac != 5 && ac != 6)
 		return (ft_error(ERR_ARG_COUNT), ERROR);
-	if (check_args(argv))
+	if (check_args(av))
 		return (ERROR);
 	init_program(&program, philos);
-	init_forks(forks, ft_atoi(argv[1]));
-	init_philos(philos, &program, forks, argv);
+	init_forks(forks, ft_atoi(av[1]));
+	init_philos(philos, &program, forks, av);
 	init_threads(&program, forks);
 	ft_destroy(NULL, &program, forks);
 	return (SUCCESS);
