@@ -1,6 +1,6 @@
-# PHILOSOPHERS 🍽️
+# Philosophers 🍽️
 
-### Dining Philosophers simulation (42 project)
+### Dining Philosophers simulation
 
 `philo` is a small C program that simulates the Dining Philosophers problem using POSIX threads and mutexes. The goal is to implement a concurrent program where philosophers alternately think, eat, and sleep while sharing forks (mutexes) and avoiding deadlocks and starvation.
 
@@ -29,7 +29,7 @@ make
 Run the simulation:
 
 ```bash
-./philo number_of_philosophers time_to_die time_to_eat time_to_sleep [number_of_times_each_philosopher_must_eat]
+./philo [number_of_philosophers] [time_to_die] [time_to_eat] [time_to_sleep] [number_of_times_each_philosopher_must_eat]
 ```
 
 Arguments (all integers in milliseconds except the first):
@@ -140,4 +140,4 @@ Notes:
 
 ---
 ## Credits
-Built as a 42 school project. Author: mahkilic (see repository). The project implements the classic concurrency exercise (Dining Philosophers) to learn thread synchronization and safe resource cleanup.
+Built as a Codam project. Author: mahkilic (see repository). The project implements the classic concurrency exercise (Dining Philosophers) to learn thread synchronization and safe resource cleanup.
